@@ -1,0 +1,42 @@
+﻿{
+    "dataset":  "mhealth",
+    "train":  {
+                  "loss":  "weighted_ce",
+                  "optimizer":  "adam",
+                  "epochs_max":  150,
+                  "weights_from":  "train_only",
+                  "amp":  false,
+                  "patience":  10,
+                  "batch_size":  64,
+                  "lr":  0.001
+              },
+    "seeds":  {
+                  "numpy":  11,
+                  "torch":  111,
+                  "python":  1
+              },
+    "verify":  {
+                   "report":  "RESULTS/verify_report.json",
+                   "must_be_green":  true
+               },
+    "mitigation":  {
+                       "name":  "baseline"
+                   },
+    "model":  {
+                  "n_channels":  15,
+                  "config_path":  "configs/models/lstm.yaml",
+                  "name":  "lstm",
+                  "n_classes":  12
+              },
+    "run_id":  "mhealth__lstm__p2__baseline__fold01__seed1",
+    "window":  {
+                   "overlap":  0.5,
+                   "stride":  64,
+                   "length":  128
+               },
+    "protocol":  {
+                     "fold_id":  1,
+                     "seed":  1,
+                     "kind":  "p2"
+                 }
+}

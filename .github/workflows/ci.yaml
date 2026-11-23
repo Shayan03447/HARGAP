@@ -1,0 +1,42 @@
+﻿name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: com748-hargap
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: com748-hargap/requirements-lock.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-lock.txt
+          pip install -e .[dev]
+
+      - name: Fast verification suite
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m pytest -q tests/test_disjointness.py tests/test_window_boundaries.py tests/test_fitting_scope.py tests/test_augmentation_scope.py tests/test_manifests.py tests/test_stats_implementations.py
+
+      - name: Smoke synthetic pipeline
+        env:
+          PYTHONPATH: src
+        run: |
+          python scripts/build_cache.py --dataset synthetic --out data/cache/synthetic_windows.npz
+          python scripts/build_folds.py --dataset synthetic --cache data/cache/synthetic_windows.npz --out-dir MANIFESTS
+          python scripts/run_experiment.py --config configs/runs/example_synthetic_cnn_p2_baseline.yaml --smoke --allow-unverified

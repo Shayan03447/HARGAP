@@ -1,0 +1,41 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Environments
+.venv/
+venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Data and generated artifacts
+/data/raw/
+/data/cache/
+/MANIFESTS/*.json
+/MANIFESTS/*.sha256
+/RESULTS/runs.jsonl
+/RESULTS/logs/
+/RESULTS/checkpoints/
+!/MANIFESTS/.gitkeep
+!/RESULTS/.gitkeep
+!/RESULTS/logs/.gitkeep
+!/RESULTS/checkpoints/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Pytest
+.pytest_cache/
+
+# Local environment and nested artifact copies
+myvenv/
+/MANIFESTS/*/

@@ -1,0 +1,14 @@
+name: "cnn"
+type: "1d_cnn"
+conv_layers:
+  - {out_channels: 64, kernel_size: 5, stride: 1, padding: 2}
+  - {out_channels: 64, kernel_size: 5, stride: 1, padding: 2}
+  - {out_channels: 128, kernel_size: 3, stride: 1, padding: 1}
+  - {out_channels: 128, kernel_size: 3, stride: 1, padding: 1}
+pooling:
+  type: "adaptive_max"
+  output_size: 1
+batch_norm: true
+activation: "relu"
+dropout: 0.5
+fc_hidden: 128

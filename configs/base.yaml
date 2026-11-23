@@ -1,0 +1,31 @@
+# Base Experiment Configuration
+sampling_rate_hz: 50
+window:
+  length: 128
+  overlap: 0.5
+  stride: 64
+train:
+  optimizer: "adam"
+  learning_rate: 0.001
+  adam_betas: [0.9, 0.999]
+  adam_eps: 1.0e-8
+  batch_size: 64
+  epochs_max: 150
+  patience: 10
+  loss: "weighted_ce"
+  weights_from: "train_only"
+  amp: false
+  num_workers: 0
+seeds:
+  python: 1
+  numpy: 11
+  torch: 111
+analysis:
+  metric: "macro_f1"
+  bootstrap_resamples: 10000
+  resample_seed: 42
+  significance_alpha: 0.05
+  min_effect_gain_pp: 2.0
+  min_rank_biserial: 0.3
+verify:
+  permutation_chance_margin: 0.02

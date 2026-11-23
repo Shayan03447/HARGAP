@@ -1,0 +1,12 @@
+{
+  "results_path": "D:\\Clients\\Zeeshan\\com748-hargap\\RESULTS\\runs.jsonl",
+  "tables": [
+    "rq1_gap",
+    "rq2_rankings"
+  ],
+  "figures": [
+    "rq1_gap_bars.png",
+    "subject_dispersion_p1_vs_p2.png",
+    "example_confusion_matrix.png"
+  ]
+}

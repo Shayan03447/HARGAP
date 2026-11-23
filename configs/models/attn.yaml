@@ -1,0 +1,14 @@
+name: "attn"
+type: "attention_cnnlstm"
+conv_layers:
+  - {out_channels: 64, kernel_size: 5, stride: 1, padding: 2}
+  - {out_channels: 64, kernel_size: 5, stride: 1, padding: 2}
+  - {out_channels: 64, kernel_size: 5, stride: 1, padding: 2}
+  - {out_channels: 64, kernel_size: 5, stride: 1, padding: 2}
+batch_norm: true
+activation: "relu"
+lstm_hidden: 128
+lstm_layers: 2
+bidirectional: false
+dropout: 0.5
+attention_dim: 64

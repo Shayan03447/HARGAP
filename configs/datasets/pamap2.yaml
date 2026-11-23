@@ -1,0 +1,44 @@
+name: "pamap2"
+total_subjects: 9
+retained_subjects: 8
+n_classes: 12
+classes:
+  1: "lying"
+  2: "sitting"
+  3: "standing"
+  4: "walking"
+  5: "running"
+  6: "cycling"
+  7: "Nordic_walking"
+  12: "ascending_stairs"
+  13: "descending_stairs"
+  16: "vacuum_cleaning"
+  17: "ironing"
+  24: "rope_jumping"
+n_channels: 18
+channels:
+  - "hand_acc_x"
+  - "hand_acc_y"
+  - "hand_acc_z"
+  - "hand_gyro_x"
+  - "hand_gyro_y"
+  - "hand_gyro_z"
+  - "chest_acc_x"
+  - "chest_acc_y"
+  - "chest_acc_z"
+  - "chest_gyro_x"
+  - "chest_gyro_y"
+  - "chest_gyro_z"
+  - "ankle_acc_x"
+  - "ankle_acc_y"
+  - "ankle_acc_z"
+  - "ankle_gyro_x"
+  - "ankle_gyro_y"
+  - "ankle_gyro_z"
+native_sampling_rate_hz: 100
+target_sampling_rate_hz: 50
+decimation_factor: 2
+dropout_max_gap_samples: 128
+min_windows_per_activity: 5
+raw_dir: "data/raw/pamap2"
+cache_file: "data/cache/pamap2_windows.npz"

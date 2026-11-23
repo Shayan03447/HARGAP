@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hargap"
+version = "1.0.0"
+description = "Deep Learning for Human Activity Recognition: Quantifying and Reducing the Cross-Subject Generalisation Gap"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Zeeshan Tariq", email = "20107917@students.ulster.ac.uk" }
+]
+dependencies = [
+    "torch>=2.0.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "pandas>=2.0.0",
+    "scikit-learn>=1.2.0",
+    "statsmodels>=0.14.0",
+    "pyyaml>=6.0",
+    "pyarrow>=12.0.0",
+    "matplotlib>=3.7.0",
+    "streamlit>=1.24.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

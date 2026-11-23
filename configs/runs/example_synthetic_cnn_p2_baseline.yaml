@@ -1,0 +1,37 @@
+﻿run_id: synthetic__cnn__p2__baseline__fold01__seed1
+dataset: synthetic
+channels: [ch0, ch1, ch2, ch3, ch4, ch5, ch6, ch7, ch8]
+n_channels: 9
+n_classes: 6
+window:
+  length: 128
+  overlap: 0.5
+  stride: 64
+  source: synthetic_windows
+protocol:
+  kind: p2
+  fold_id: 1
+  seed: 1
+  manifest_path: MANIFESTS/synthetic_p2_fold01_seed1.json
+  validation_rule: "fixed 20% panel, min 1, ascending subject id"
+model:
+  name: cnn
+  config_path: configs/models/cnn.yaml
+train:
+  optimizer: adam
+  lr: 0.001
+  batch_size: 32
+  epochs_max: 3
+  patience: 2
+  loss: weighted_ce
+  weights_from: train_only
+  amp: false
+mitigation:
+  name: baseline
+seeds:
+  python: 1
+  numpy: 11
+  torch: 111
+verify:
+  report: RESULTS/verify_report.json
+  must_be_green: false
